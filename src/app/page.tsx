@@ -1,8 +1,11 @@
 import Link from "next/link"
-import { ArrowRight, Heart, Brain, Zap, Moon, Activity } from "lucide-react"
+import Image from "next/image"
+import { ArrowRight, Heart, Brain, Zap, Moon, Activity, Clock, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { NewsletterSignup } from "@/components/newsletter"
+import { getSortedContent } from "@/lib/content"
 
 const features = [
   {
@@ -54,6 +57,8 @@ const featuredProtocols = [
 ]
 
 export default function Home() {
+  const blogPosts = getSortedContent('blog').slice(0, 3)
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -143,6 +148,56 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Blog Section */}
+      {blogPosts.length > 0 && (
+        <section className="py-20 bg-zinc-950">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-between items-center mb-12">
+              <div>
+                <h2 className="text-3xl font-bold text-white">Latest Articles</h2>
+                <p className="mt-2 text-zinc-400">Deep dives into longevity science</p>
+              </div>
+              <Link href="/blog">
+                <Button variant="ghost" className="text-emerald-400 hover:text-emerald-300">
+                  View All <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {blogPosts.map((post) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <Card className="bg-zinc-900/50 border-zinc-800 hover:border-emerald-500/50 transition-all h-full group">
+                    <CardHeader>
+                      <div className="flex justify-between items-start mb-3">
+                        <Badge variant="outline" className="border-emerald-500/50 text-emerald-400">
+                          {post.category}
+                        </Badge>
+                        <div className="flex items-center gap-1 text-xs text-zinc-500">
+                          <Clock className="h-3 w-3" />
+                          <span>{post.readTime}</span>
+                        </div>
+                      </div>
+                      <CardTitle className="text-white text-lg group-hover:text-emerald-400 transition-colors line-clamp-2">
+                        {post.title}
+                      </CardTitle>
+                      <CardDescription className="text-zinc-400 line-clamp-2">
+                        {post.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex items-center gap-2 text-xs text-zinc-500">
+                        <Calendar className="h-3 w-3" />
+                        <span>{post.date}</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Newsletter Section */}
       <section className="py-20 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10">

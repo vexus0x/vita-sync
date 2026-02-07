@@ -19,6 +19,7 @@ const navItems = [
   { title: "Biohacks", href: "/biohacks" },
   { title: "Science", href: "/science" },
   { title: "Tools", href: "/tools" },
+  { title: "Blog", href: "/blog" },
 ]
 
 export function Navbar() {
