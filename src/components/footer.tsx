@@ -9,7 +9,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="h-8 w-8 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500" />
-              <span className="text-xl font-bold text-white">Blueprint</span>
+              <span className="text-xl font-bold text-white">VitaSync</span>
             </div>
             <p className="text-sm text-zinc-400">
               Science-backed longevity and health optimization, simplified.
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-500">
-          © {new Date().getFullYear()} Blueprint. All rights reserved.
+          © {new Date().getFullYear()} VitaSync. All rights reserved.
         </div>
       </div>
     </footer>

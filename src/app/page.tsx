@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowRight, Heart, Brain, Zap, Moon, Activity } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { NewsletterSignup } from "@/components/newsletter"
 
 const features = [
   {
@@ -72,9 +73,9 @@ export default function Home() {
                   Explore Protocols <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/about">
+              <Link href="/tools">
                 <Button size="lg" variant="outline" className="border-zinc-700 text-white hover:bg-zinc-800">
-                  Learn More
+                  Try Calculator
                 </Button>
               </Link>
             </div>
@@ -143,17 +144,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Newsletter Section */}
       <section className="py-20 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-xl mx-auto">
+            <NewsletterSignup />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white">Start Your Longevity Journey</h2>
+          <h2 className="text-3xl font-bold text-white">Start Your Longevity Journey Today</h2>
           <p className="mt-4 text-zinc-400 max-w-xl mx-auto">
-            Join thousands of people optimizing their health with science-backed protocols and community support.
+            Explore our science-backed protocols, tools, and resources to optimize your health and extend your healthspan.
           </p>
-          <div className="mt-8">
-            <Link href="/newsletter">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/protocols">
               <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white">
-                Subscribe to Newsletter
+                Browse Protocols
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button size="lg" variant="outline" className="border-zinc-700 text-white hover:bg-zinc-800">
+                Learn More
               </Button>
             </Link>
           </div>

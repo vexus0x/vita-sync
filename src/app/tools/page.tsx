@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calculator, ClipboardList, Activity, TrendingUp } from "lucide-react"
+import { LongevityCalculator } from "@/components/calculator"
 
 const tools = [
   {
@@ -45,7 +46,7 @@ export default function ToolsPage() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-12">
           {tools.map((tool) => (
             <Card key={tool.title} className={`bg-zinc-900/50 border-zinc-800 ${tool.status === "Available" ? "hover:border-emerald-500/50" : "opacity-75"} transition-all cursor-pointer`}>
               <CardHeader>
@@ -67,20 +68,10 @@ export default function ToolsPage() {
           ))}
         </div>
 
-        {/* Longevity Calculator Preview */}
-        <div className="mt-12 p-8 bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 rounded-xl border border-zinc-800">
-          <div className="text-center">
-            <Calculator className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-white">Ready to calculate your longevity score?</h2>
-            <p className="mt-2 text-zinc-400 max-w-md mx-auto">
-              Answer a few questions about your lifestyle to get an estimate of your biological age and personalized recommendations.
-            </p>
-            <div className="mt-6">
-              <Badge className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2">
-                Launch Calculator
-              </Badge>
-            </div>
-          </div>
+        {/* Interactive Longevity Calculator */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Interactive Longevity Calculator</h2>
+          <LongevityCalculator />
         </div>
       </div>
     </div>

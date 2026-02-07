@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { BookOpen, FlaskConical, FileText } from "lucide-react"
+import { BookOpen, FlaskConical, FileText, Clock, BarChart } from "lucide-react"
 
 const articles = [
   {
@@ -9,13 +9,25 @@ const articles = [
     type: "Explainer",
     readTime: "8 min",
     level: "Intermediate",
+    keyPoints: [
+      "mTOR senses nutrients and growth factors",
+      "Chronic mTOR activation promotes aging",
+      "Fasting and rapamycin can inhibit mTOR",
+      "Balance is key for muscle maintenance",
+    ],
   },
   {
     title: "The Science of Autophagy",
-    description: "How your cells clean up damage and what triggers this longevity pathway.",
+    description: "How your cells clean up damage and trigger this powerful longevity pathway.",
     type: "Explainer",
     readTime: "10 min",
     level: "Intermediate",
+    keyPoints: [
+      "Autophagy means 'self-eating'",
+      "Triggers: fasting, exercise, certain compounds",
+      "Peak effect at 12-24 hours of fasting",
+      "Declines with age - crucial to maintain",
+    ],
   },
   {
     title: "Blue Zones: Lessons from Centenarians",
@@ -23,6 +35,12 @@ const articles = [
     type: "Research Review",
     readTime: "12 min",
     level: "Beginner",
+    keyPoints: [
+      "5 Blue Zones identified worldwide",
+      "Common: plant-based diet, movement, purpose",
+      "Social connections are crucial",
+      "Moderate alcohol, stress management",
+    ],
   },
   {
     title: "NMN and NR: NAD+ Precursors Explained",
@@ -30,6 +48,12 @@ const articles = [
     type: "Deep Dive",
     readTime: "15 min",
     level: "Advanced",
+    keyPoints: [
+      "NAD+ declines with age by ~50% by age 50",
+      "NR more stable than NMN orally",
+      "Human studies show increased NAD+ levels",
+      "Long-term benefits still being studied",
+    ],
   },
   {
     title: "Zone 2 Training: The Sweet Spot for Longevity",
@@ -37,6 +61,12 @@ const articles = [
     type: "Research Review",
     readTime: "7 min",
     level: "Beginner",
+    keyPoints: [
+      "Zone 2: 60-70% of max heart rate",
+      "Builds mitochondrial density",
+      "90+ minutes per week for benefits",
+      "Complements high-intensity training",
+    ],
   },
   {
     title: "Epigenetic Clocks and Biological Age",
@@ -44,6 +74,12 @@ const articles = [
     type: "Explainer",
     readTime: "12 min",
     level: "Advanced",
+    keyPoints: [
+      "DNA methylation patterns reveal biological age",
+      "Several clocks: Horvath, GrimAge, PhenoAge",
+      "Some interventions reverse epigenetic age",
+      "Tests available but expensive",
+    ],
   },
 ]
 
@@ -76,7 +112,7 @@ export default function SciencePage() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {articles.map((article, index) => (
-            <Card key={index} className="bg-zinc-900/50 border-zinc-800 hover:border-emerald-500/50 transition-all cursor-pointer">
+            <Card key={index} className="bg-zinc-900/50 border-zinc-800 hover:border-emerald-500/50 transition-all">
               <CardHeader>
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-2">
@@ -87,15 +123,34 @@ export default function SciencePage() {
                       {article.type}
                     </Badge>
                   </div>
-                  <span className="text-sm text-zinc-500">{article.readTime} read</span>
+                  <div className="flex items-center gap-1 text-sm text-zinc-500">
+                    <Clock className="h-4 w-4" />
+                    <span>{article.readTime}</span>
+                  </div>
                 </div>
                 <CardTitle className="text-white mt-4">{article.title}</CardTitle>
                 <CardDescription className="text-zinc-400">{article.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <Badge variant="secondary" className="bg-zinc-800 text-zinc-300">
-                  {article.level}
-                </Badge>
+              <CardContent className="space-y-4">
+                <div>
+                  <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-2">Key Takeaways</p>
+                  <ul className="space-y-1">
+                    {article.keyPoints.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-zinc-300">
+                        <span className="text-emerald-400 mt-1">•</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex items-center justify-between pt-2">
+                  <Badge variant="secondary" className="bg-zinc-800 text-zinc-300">
+                    {article.level}
+                  </Badge>
+                  <Badge variant="ghost" className="text-emerald-400 hover:text-emerald-300 cursor-pointer">
+                    Read More →
+                  </Badge>
+                </div>
               </CardContent>
             </Card>
           ))}

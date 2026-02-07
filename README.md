@@ -1,6 +1,6 @@
-# Blueprint - Longevity & Health Optimization
+# VitaSync - Longevity & Health Optimization
 
-Science-backed longevity and health optimization website inspired by Bryan Johnson's Blueprint and Blue Zone research.
+Science-backed longevity and health optimization website. Live longer, live better.
 
 ## Features
 
@@ -9,6 +9,7 @@ Science-backed longevity and health optimization website inspired by Bryan Johns
 - **Biohacks** - Evidence-based interventions
 - **Science** - Deep dives into longevity research
 - **Tools** - Interactive calculators and trackers
+- **Newsletter** - Weekly protocols and research updates
 
 ## Tech Stack
 
@@ -45,6 +46,10 @@ src/
 │   └── footer.tsx
 └── lib/          # Utilities
 ```
+
+## Content
+
+Content is written in Markdown/MDX for easy editing. Add new protocols, recipes, and articles by creating files in the appropriate directory.
 
 ## Deployment
 

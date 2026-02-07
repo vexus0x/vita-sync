@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Blueprint - Live Longer, Live Better",
+  title: "VitaSync - Live Longer, Live Better",
   description: "Science-backed longevity and health optimization. Protocols, nutrition, biohacks, and tools for a longer, healthier life.",
 }
 

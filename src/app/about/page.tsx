@@ -8,7 +8,7 @@ export default function AboutPage() {
       <div className="container mx-auto px-4">
         {/* Mission Section */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl font-bold text-white">About Blueprint</h1>
+          <h1 className="text-4xl font-bold text-white">About VitaSync</h1>
           <p className="mt-6 text-xl text-zinc-400">
             Making the science of longevity accessible, actionable, and achievable for everyone.
           </p>
@@ -52,7 +52,7 @@ export default function AboutPage() {
             <CardHeader>
               <CardTitle className="text-white">Our Inspiration</CardTitle>
               <CardDescription className="text-zinc-400">
-                Blueprint draws inspiration from pioneers like Bryan Johnson and the Blue Zone researchers,
+                VitaSync draws inspiration from pioneers like Bryan Johnson and the Blue Zone researchers,
                 but our voice and approach are entirely our own.
               </CardDescription>
             </CardHeader>

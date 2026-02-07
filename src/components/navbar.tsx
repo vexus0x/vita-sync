@@ -32,7 +32,7 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500" />
-          <span className="text-xl font-bold text-white">Blueprint</span>
+          <span className="text-xl font-bold text-white">VitaSync</span>
         </Link>
 
         <div className="hidden md:flex">
